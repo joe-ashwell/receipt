@@ -1,0 +1,36 @@
+/* General Styling */
+* {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 19px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Font Styling */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+li {
+  list-style: none;
+}
+
+li:nth-child(even) {
+  background-color: #fafafa;
+}
+
+div.receipt-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 50vw;
+}
+
+span.item-price {
+  float: right;
+}
