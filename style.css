@@ -34,3 +34,9 @@ div.receipt-list {
 span.item-price {
   float: right;
 }
+
+/* List styling */
+
+ul {
+  padding: 0;
+}
