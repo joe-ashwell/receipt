@@ -4,7 +4,7 @@
 const ul = document.querySelector("ul.receipt-list");
 const categoryTitle = document.querySelector("h3.receipt-list");
 const totalSpent = document.querySelector("span.total-spent");
-const itemPricesOnPage = document.querySelectorAll("span.item-price");
+const itemPricesOnPage = document.getElementsByClassName("item-price");
 const selectFilter = document.querySelector("select.food-categories");
 
 // ===================================
@@ -12,6 +12,15 @@ const selectFilter = document.querySelector("select.food-categories");
 // ===================================
 const azButton = document.querySelector("button.az");
 const priceButton = document.querySelector("button.price-lth");
+
+// ===================================
+// ========  Calculate total  ========
+// ===================================
+
+// Needed to change to getElementsByClassName as querySelectorAll generated a static list. -- also didn't work with span.class
+Array.from(itemPricesOnPage).forEach(item => {
+  console.log(parseFloat(item.innerText.slice(1, item.innerText.length)));  
+});
 
 // ===================================
 // ======= Filtering the list  =======
@@ -53,7 +62,6 @@ let whatsTheFilter = selectFilter.addEventListener("change", () => {
     categoryTitle.innerHTML = "All Items";
 
     });
-
   }
 
 });
@@ -130,7 +138,4 @@ priceButton.addEventListener("click", () => {
     ).join("");
 
 });
-
-
-
 
