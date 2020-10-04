@@ -3,9 +3,8 @@
 // ===================================
 const ul = document.querySelector("ul.receipt-list");
 const categoryTitle = document.querySelector("h3.receipt-list");
-const itemPricesOnPage = document.querySelectorAll("span.item-price");
 const selectFilter = document.querySelector("select.food-categories");
-let totalSpent;
+const totalSpent = document.querySelector("span.total-spent");
 
 // ===================================
 // =======  Declaring buttons  =======
@@ -19,11 +18,16 @@ const priceButton = document.querySelector("button.price-lth");
 
 // Needed to change to getElementsByClassName as querySelectorAll generated a static list. -- also didn't work with span.class
 const getTotal = () => {
-  totalSpent = document.querySelectorAll("span.total-spent");
+
+  let itemPricesOnPage = document.querySelectorAll("span.item-price");
+  let totalArray = [];
 
   itemPricesOnPage.forEach(item => {
-    console.log(parseFloat(item.innerText.slice(1, item.innerText.length)));  
+    totalArray.push((parseFloat(item.innerText.slice(1, item.innerText.length))));  
   });
+
+  totalSpent.innerHTML = `£${totalArray.reduce((x, y) => x+y, 0)}`;
+
 }
 
 
@@ -74,7 +78,9 @@ let whatsTheFilter = selectFilter.addEventListener("change", () => {
 // ============================================
 // =======  Printing items to the page  =======
 // ============================================
-let printFoodItems = receiptList.forEach(foodItem => {
+const printFoodItems = () => { 
+  
+  receiptList.forEach(foodItem => {
 
     const listItem = document.createElement("li");
     listItem.setAttribute("class", "receipt-list");
@@ -84,6 +90,10 @@ let printFoodItems = receiptList.forEach(foodItem => {
     ul.appendChild(listItem);
 
 });
+  getTotal();
+}
+
+printFoodItems();
 
 // =============================================================================
 // =======  Reduces the filter list to avoid having repeats in the list  =======
