@@ -5,6 +5,7 @@ const categoryTitle = document.querySelector("h3.receipt-list");
 const selectFilter = document.querySelector("select.food-categories");
 const totalSpent = document.querySelector("span.total-spent");
 let itemPricesOnPage;
+let itemNamesOnPage;
 
 // Declaring buttons
 
@@ -44,7 +45,7 @@ const getTotal = () => {
     totalArray.push((parseFloat(item.innerText.slice(1, item.innerText.length))));  
   });
 
-  totalSpent.innerHTML = `£${totalArray.reduce((x, y) => x+y, 0)}`;
+  totalSpent.innerHTML = `£${totalArray.reduce((x, y) => x + y, 0)}`;
 
 }
 
@@ -121,13 +122,13 @@ let createFilterOption = Object.keys(filterCount).forEach(foodItem => {
 
 azButton.addEventListener("click", () => {
 
-  const azSorted = receiptList.sort((firstItem, secondItem) => firstItem.name > secondItem.name ? 1 : -1);
+  itemNamesOnPage = document.querySelectorAll("li.receipt-list");
+
+  const azSorted = Array.from(itemNamesOnPage).sort((firstItem, secondItem) => firstItem.textContent > secondItem.textContent ? 1 : -1);
 
   ul.innerHTML = azSorted.map(item => 
-
-    `<li class="receipt-list">${item.name} <span class="item-price">${item.currency}${item.price}</span>`
-
-    ).join(""); // Added .join to remove the annoying comma in arrays
+    `<li class="receipt-list">${item.innerHTML}</li>`
+    ).join("");
 
 });
 
