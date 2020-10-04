@@ -50,7 +50,7 @@ let receiptList = [
     measurement_unit: "kg"
   },
   {
-    name: "Chedder Cheese",
+    name: "Cheddar Cheese",
     type: "Dairy",
     package: "Pack",
     price: 3.23,

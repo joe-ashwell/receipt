@@ -31,7 +31,8 @@ div.receipt-list {
   min-width: 50vw;
 }
 
-span.item-price {
+span.item-price,
+span.total-spent {
   float: right;
 }
 
