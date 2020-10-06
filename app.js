@@ -21,7 +21,7 @@ const printFoodItems = () => {
     const listItem = document.createElement("li");
     listItem.setAttribute("class", "receipt-list");
     
-    listItem.innerHTML = `${foodItem.name} <span class="item-price">${foodItem.currency}${foodItem.price}</span>`;
+    listItem.innerHTML = `${foodItem.name} <span class="item-price">${foodItem.currency}${foodItem.price.toFixed(2)}</span>`;
   
     ul.appendChild(listItem);
 
@@ -45,7 +45,9 @@ const getTotal = () => {
     totalArray.push((parseFloat(item.innerText.slice(1, item.innerText.length))));  
   });
 
-  totalSpent.innerHTML = `£${totalArray.reduce((x, y) => x + y, 0)}`;
+  let receiptTotal = totalArray.reduce((x, y) => x + y, 0)
+
+  totalSpent.innerHTML = `£${receiptTotal.toFixed(2)}`;
 
 }
 
@@ -66,7 +68,7 @@ let whatsTheFilter = selectFilter.addEventListener("change", () => {
       const listItem = document.createElement("li");
       listItem.setAttribute("class", "receipt-list");
       
-      listItem.innerHTML = `${indexItem.name} <span class="item-price">${indexItem.currency}${indexItem.price}</span>`;
+      listItem.innerHTML = `${indexItem.name} <span class="item-price">${indexItem.currency}${indexItem.price.toFixed(2)}</span>`;
     
       ul.appendChild(listItem);
   
@@ -80,10 +82,8 @@ let whatsTheFilter = selectFilter.addEventListener("change", () => {
     const listItem = document.createElement("li");
     listItem.setAttribute("class", "receipt-list");
     
-    listItem.innerHTML = `${foodItem.name} <span class="item-price">${foodItem.currency}${foodItem.price}</span>`;
-  
+    listItem.innerHTML = `${foodItem.name} <span class="item-price">${foodItem.currency}${foodItem.price.toFixed(2)}</span>`;
     ul.appendChild(listItem);
-
     categoryTitle.innerHTML = "All Items";
 
     });
