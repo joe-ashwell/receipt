@@ -137,11 +137,33 @@ azButton.addEventListener("click", () => {
 
 priceButton.addEventListener("click", () => {
 
-  const priceSorted = receiptList.sort((firstItem, secondItem) => firstItem.price > secondItem.price ? 1 : -1);
+  // Get each li item and contents == DONE ==
+  itemNamesOnPage = document.querySelectorAll("li.receipt-list");
 
-  ul.innerHTML = priceSorted.map(item => 
+  // Create empty array == Done ==
+  let itemArray = [];
 
-    `<li class="receipt-list">${item.name} <span class="item-price">${item.currency}${item.price}</span>`
+  itemNamesOnPage.forEach(
+
+    item => { 
+    
+      let splitItem = item.textContent.split("£");
+      itemArray.push(splitItem);
+
+  })
+  // Put each li item into an object; key => name / key => price == Done ==
+
+  // Put each object into the array == Done ==
+
+  // Sort array order by price value == Done ==
+
+  let priceSortedItems = itemArray.sort((firstItem, secondItem) => parseFloat(firstItem[1]) > parseFloat(secondItem[1]) ? 1 : -1);
+
+  ul.innerHTML = priceSortedItems.map(
+    
+    item => 
+
+    `<li class="receipt-list">${item[0]}<span class="item-price">£${item[1]}</span></li>`
 
     ).join("");
 
