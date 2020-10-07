@@ -58,6 +58,18 @@ body {
   margin: auto 1rem;
 }
 
+/* Subtitle */
+
+.description-heading {
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 1px solid #bdbdbd; */
+}
+
+.description-heading h4 {
+  color: #bdbdbd;
+}
+
 /* Font Styling */
 
 li {
