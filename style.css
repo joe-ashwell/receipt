@@ -1,6 +1,6 @@
 /* General Styling */
 * {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-size: 19px;
 }
 
@@ -10,14 +10,59 @@ main {
   align-items: center;
 }
 
-/* Font Styling */
-h1 {
-  text-align: center;
-  font-size: 3rem;
+body {
+  margin: 0;
 }
+
+/* Header */
+.receipt-header {
+  background-color: #2c2c2c;
+  width: 100vw;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.receipt-header img {
+  width: 75px;
+  height: 75px;
+}
+
+.receipt-header p {
+  color: #fafafa;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #fafafa;
+}
+
+/* Filters */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  width: 100vw;
+  background-color: #f5f5f5;
+}
+
+.filter {
+  margin: auto 1rem;
+}
+
+/* Font Styling */
 
 li {
   list-style: none;
+  margin: 0.5rem auto;
 }
 
 li:nth-child(even) {
@@ -31,13 +76,43 @@ div.receipt-list {
   min-width: 50vw;
 }
 
+h3.receipt-list {
+  font-size: 1.5rem;
+}
+
 span.item-price,
 span.total-spent {
   float: right;
+}
+
+.total * {
+  font-size: 1.25rem;
+}
+
+.total {
+  border-top: black dotted 2px;
+  margin-bottom: 5rem;
 }
 
 /* List styling */
 
 ul {
   padding: 0;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter {
+    margin: 0.5rem;
+  }
+
+  div.receipt-list {
+    min-width: 80vw;
+  }
+
 }
