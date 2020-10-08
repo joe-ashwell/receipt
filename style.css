@@ -60,6 +60,10 @@ body {
   margin: auto 1rem;
 }
 
+.filters * {  
+  font-size: 17px;
+}
+
 /* Subtitle */
 
 .description-heading {

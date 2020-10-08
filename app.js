@@ -137,12 +137,13 @@ azButton.addEventListener("click", () => {
 
 priceButton.addEventListener("click", () => {
 
-  // Get each li item and contents == DONE ==
+  // Get each li item and contents 
   itemNamesOnPage = document.querySelectorAll("li.receipt-list");
 
-  // Create empty array == Done ==
+  // Create empty array 
   let itemArray = [];
 
+  // Run through and split the item to target the price only
   itemNamesOnPage.forEach(
 
     item => { 
@@ -150,13 +151,9 @@ priceButton.addEventListener("click", () => {
       let splitItem = item.textContent.split("£");
       itemArray.push(splitItem);
 
-  })
-  // Put each li item into an object; key => name / key => price == Done ==
+  });
 
-  // Put each object into the array == Done ==
-
-  // Sort array order by price value == Done ==
-
+  // Sort and map the items back onto the page
   let priceSortedItems = itemArray.sort((firstItem, secondItem) => parseFloat(firstItem[1]) > parseFloat(secondItem[1]) ? 1 : -1);
 
   ul.innerHTML = priceSortedItems.map(
