@@ -1,4 +1,4 @@
-let receiptList = [
+const receiptList = [
   {
     name: "Bananas",
     type: "Fruit",
